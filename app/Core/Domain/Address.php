@@ -6,8 +6,8 @@ class Address
 {
     public function __construct(
         private string $country,
-        private string $city,
         private string $state,
+        private string $city,
         private string $district,
         private string $street,
         private string $number,
@@ -19,14 +19,14 @@ class Address
         return $this->country;
     }
 
-    public function getCity(): string
-    {
-        return $this->city;
-    }
-
     public function getState(): string
     {
         return $this->state;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
     }
 
     public function getDistrict(): string
@@ -47,5 +47,18 @@ class Address
     public function getComplement(): string
     {
         return $this->complement;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            "country" => $this->country,
+            "state" => $this->state,
+            "city" => $this->city,
+            "district" => $this->district,
+            "street" => $this->street,
+            "number" => $this->number,
+            "complement" => $this->complement
+        ];
     }
 }
