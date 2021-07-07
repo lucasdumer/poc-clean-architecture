@@ -19,7 +19,7 @@ class CreateClient
         string $number,
         string $complement
     ): Client {
-        $client = new Client($name, $gender, $birth, new Address($country, $state, $city, $district, $street, $number, $complement))
+        $client = new Client($name, $gender, $birth, new Address($country, $state, $city, $district, $street, $number, $complement));
         return $client;
     }
 }
