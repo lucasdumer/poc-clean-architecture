@@ -12,13 +12,13 @@ class ClientCreateRequest extends FormRequest
             'name' => ['required', 'max:255'],
             'gender' => ['required', 'in:male,female'],
             'birth' => ['required', 'date'],
-            'country' => ['required', 'max:255'],
-            'state' => ['required', 'max:255'],
-            'city' => ['required', 'max:255'],
-            'district' => ['required', 'max:255'],
-            'street' => ['required', 'max:255'],
-            'number' => ['required', 'max:255'],
-            'complement' => ['required', 'max:255'],
+            'address.country' => ['required', 'max:255'],
+            'address.state' => ['required', 'max:255'],
+            'address.city' => ['required', 'max:255'],
+            'address.district' => ['required', 'max:255'],
+            'address.street' => ['required', 'max:255'],
+            'address.number' => ['required', 'max:255'],
+            'address.complement' => ['required', 'max:255'],
         ];
     }
 }

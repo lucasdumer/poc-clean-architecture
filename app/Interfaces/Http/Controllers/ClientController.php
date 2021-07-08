@@ -17,15 +17,15 @@ class ClientController extends Controller
             return $this->success($this->createClient->execute(
                 $request->name,
                 $request->gender,
-                $request->birth,
-                $request->country,
-                $request->state,
-                $request->city,
-                $request->district,
-                $request->street,
-                $request->number,
-                $request->complement,
-            ));
+                new \DateTime($request->birth),
+                $request->address['country'],
+                $request->address['state'],
+                $request->address['city'],
+                $request->address['district'],
+                $request->address['street'],
+                $request->address['number'],
+                $request->address['complement'],
+            )->toArray());
         } catch(\Exception $e) {
             return $this->error($e);
         }
