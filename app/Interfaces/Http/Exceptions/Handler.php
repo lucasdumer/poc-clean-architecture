@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 class Handler extends ExceptionHandler
 {
@@ -65,7 +66,12 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof \TypeError || $exception instanceof FatalError || $exception instanceof Error) {
+        if (
+            $exception instanceof \TypeError ||
+            $exception instanceof FatalError ||
+            $exception instanceof Error ||
+            $exception instanceof BindingResolutionException
+        ) {
             return response()->json([
                 'status'=> 'error',
                 'message' => $exception->getMessage(),
