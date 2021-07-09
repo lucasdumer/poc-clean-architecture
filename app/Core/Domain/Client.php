@@ -66,6 +66,7 @@ class Client
     public function toArray(): array
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "gender" => $this->gender,
             "birth" => $this->birth->format("Y-m-d"),
